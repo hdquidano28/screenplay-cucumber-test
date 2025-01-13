@@ -31,7 +31,7 @@ class HandleShortlistCandidate:
         save_btn = form.find_element(By.XPATH, "//*[@type='submit']")
         save_btn.click()
 
-        time.sleep(35)
+        time.sleep(10)
 
 class HandleScheduledStage:
     def perform_as(self, actor):
@@ -46,4 +46,49 @@ class HandleScheduledStage:
         schedule_btn = form.find_element(By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[2]/button[2]")
         schedule_btn.click()
 
-        time.sleep(30)
+        time.sleep(10)
+
+class HandleInterviewPassed:
+    def perform_as(self, actor):
+        wait = WebDriverWait(actor.driver, 20)
+        
+        # Esperar a que aparezca el formulario
+        form = wait.until(
+            EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'oxd-form')]"))
+        )
+        
+        # Localizar el botón "Interview" dentro del formulario
+        interview_btn = form.find_element(By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[2]/button[2]")
+        interview_btn.click()
+
+        time.sleep(10)
+
+class HandleOfferJob:
+    def perform_as(self, actor):
+        wait = WebDriverWait(actor.driver, 20)
+        
+        # Esperar a que aparezca el formulario
+        form = wait.until(
+            EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'oxd-form')]"))
+        )
+        
+        # Localizar el botón "Offer Job" dentro del formulario
+        offer_job_btn = form.find_element(By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[2]/button[2]")
+        offer_job_btn.click()
+
+        time.sleep(10)
+
+class HandleHire:
+    def perform_as(self, actor):
+        wait = WebDriverWait(actor.driver, 20)
+        
+        # Esperar a que aparezca el formulario
+        form = wait.until(
+            EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'oxd-form')]"))
+        )
+        
+        # Localizar el botón "Hire" dentro del formulario
+        hire_btn = form.find_element(By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[2]/button[2]")
+        hire_btn.click()
+
+        time.sleep(10)
